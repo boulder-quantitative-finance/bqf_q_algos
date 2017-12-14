@@ -118,8 +118,8 @@ def sell (context, data):
         if sec not in context.B:
             limit = PricingData[sec]
             try:
-                # order_target_percent(sec,0,style = LimitOrder(0.98*limit))
-                order_target_percent(sec,0)
+                order_target_percent(sec,0,style = LimitOrder(0.98*limit))
+                # order_target_percent(sec,0)
 
                 context.S.append(sec)
             except:
@@ -149,8 +149,8 @@ def buy (context, data):
     for sec in context.longs:
         if sec not in context.S:
             limit = PricingData[sec]
-            # order_target_percent(sec, 1.0/len(context.longs), style = LimitOrder(limit) )
-            order_target_percent(sec, 1.0/len(context.longs))
+            order_target_percent(sec, 1.0/len(context.longs), style = LimitOrder(limit) )
+            # order_target_percent(sec, 1.0/len(context.longs))
             context.B.append(sec)
 
 def buy_2 (context, data):
@@ -163,8 +163,8 @@ def buy_2 (context, data):
         for sec in context.portfolio.positions:
             limit = PricingData[sec]
             try:
-                # order_target_percent(sec, 1.0/len(context.portfolio.positions), style = LimitOrder(limit) )
-                order_target_percent(sec, 1.0/len(context.portfolio.positions))
+                order_target_percent(sec, 1.0/len(context.portfolio.positions), style = LimitOrder(limit) )
+                # order_target_percent(sec, 1.0/len(context.portfolio.positions))
             except:
                 pass
            
